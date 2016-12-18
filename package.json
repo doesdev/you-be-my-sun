@@ -1,0 +1,46 @@
+{
+  "name": "you-be-my-sun",
+  "version": "1.0.0",
+  "description": "Make one DOM element hug another while staying closest to page center",
+  "main": "index.js",
+  "jsnext:main": "index-es6.js",
+  "files": [
+    "index.js",
+    "index-es6.js"
+  ],
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doesdev/you-be-my-sun.git"
+  },
+  "keywords": [
+    "gravity",
+    "gravitate",
+    "dom",
+    "element",
+    "position",
+    "page",
+    "center",
+    "popover",
+    "attached"
+  ],
+  "author": "Andrew Carpenter (https://github.com/doesdev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doesdev/you-be-my-sun/issues"
+  },
+  "homepage": "https://github.com/doesdev/you-be-my-sun#readme",
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "ghooks": "^1.3.2",
+    "rollup": "^0.37.0",
+    "simple-git": "^1.65.0"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "node build"
+    }
+  }
+}
