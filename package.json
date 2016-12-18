@@ -1,6 +1,6 @@
 {
   "name": "you-be-my-sun",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make one DOM element hug another while staying closest to page center",
   "main": "index.js",
   "jsnext:main": "index-es6.js",

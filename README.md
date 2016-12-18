@@ -19,7 +19,7 @@ $ npm install --save you-be-my-sun
 'use strict'
 
 // Setup
-import gravity from './../index-es6.js'
+import gravity from 'you-be-my-sun'
 const sun = document.getElementById('sun')
 const earth = document.getElementById('earth')
 
