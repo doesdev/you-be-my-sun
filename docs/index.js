@@ -2,22 +2,22 @@
 'use strict';
 
 // Setup
-var testCss = 'position:fixed;top:0;left:0;bottom:0;right:0;visibility:hidden;';
-var testElId = 'youbemysun-test-el';
-var testEl = document.getElementById(testElId);
+var testCss$1 = 'position:fixed;top:0;left:0;bottom:0;right:0;visibility:hidden;';
+var testElId$1 = 'youbemysun-test-el';
+var testEl$1 = document.getElementById(testElId$1);
 
 // Helpers
-function windowSize () {
-  if (!testEl) testEl = document.getElementById(testElId);
-  if (!testEl) {
-    testEl = document.createElement('div');
-    testEl.id = testElId;
-    testEl.style.cssText = testCss;
-    document.body.appendChild(testEl);
+function windowSize$1 () {
+  if (!testEl$1) testEl$1 = document.getElementById(testElId$1);
+  if (!testEl$1) {
+    testEl$1 = document.createElement('div');
+    testEl$1.id = testElId$1;
+    testEl$1.style.cssText = testCss$1;
+    document.body.appendChild(testEl$1);
   }
   return {
-    width: testEl.offsetWidth,
-    height: testEl.offsetHeight
+    width: testEl$1.offsetWidth,
+    height: testEl$1.offsetHeight
   }
 }
 
@@ -30,7 +30,7 @@ function gravity$1 (sunEl, width, height, fluidity) {
   }
   fluidity = (fluidity || 30);
   var coords = sunEl.getBoundingClientRect();
-  var winSize = windowSize();
+  var winSize = windowSize$1();
   var pageWidth = winSize.width;
   var pageHeight = winSize.height;
   var center = {
@@ -92,28 +92,58 @@ function gravity$1 (sunEl, width, height, fluidity) {
 // Setup
 var sun = document.getElementById('sun');
 var earth = document.getElementById('earth');
+var testCss = 'position:fixed;top:0;left:0;bottom:0;right:0;visibility:hidden;';
+var testElId = 'youbemysun-test-el';
+var testEl = document.getElementById(testElId);
+var steps = 1;
+var xDir = steps;
+var yDir = steps;
+
+// Helpers
+function windowSize () {
+  if (!testEl) testEl = document.getElementById(testElId);
+  if (!testEl) {
+    testEl = document.createElement('div');
+    testEl.id = testElId;
+    testEl.style.cssText = testCss;
+    document.body.appendChild(testEl);
+  }
+  return {
+    width: testEl.offsetWidth,
+    height: testEl.offsetHeight
+  }
+}
 
 // Main
 function positionEarth () {
-  var pos = gravity$1(sun, earth, 1);
+  var pos = gravity$1(sun, earth, steps);
   earth.style.left = pos.x + 'px';
   earth.style.top = pos.y + 'px';
 }
 
 function reposition () {
+  var coords = sun.getBoundingClientRect();
+  var winSize = windowSize();
+  var pageWidth = winSize.width;
+  var pageHeight = winSize.height;
   var oldLeft = parseInt(sun.style.left, 10);
   var oldTop = parseInt(sun.style.top, 10);
   if (!oldLeft || !oldTop) {
-    var coords = sun.getBoundingClientRect();
     oldLeft = coords.left;
     oldTop = coords.top;
   }
-  sun.style.left = (oldLeft + 1) + 'px';
-  sun.style.top = (oldTop + 1) + 'px';
+  if (xDir > 0 && (oldLeft + coords.width + xDir) > pageWidth) xDir = -steps;
+  else if ((oldLeft - xDir) < 0) xDir = steps;
+  if (yDir > 0 && (oldTop + coords.height + yDir) > pageHeight) yDir = -steps;
+  else if ((oldTop - yDir) < 0) yDir = steps;
+  var left = oldLeft + xDir;
+  var top = oldTop + yDir;
+  sun.style.left = left + 'px';
+  sun.style.top = top + 'px';
   positionEarth();
 }
 
 positionEarth();
-setInterval(reposition, 50);
+setInterval(reposition, 10);
 
 }());

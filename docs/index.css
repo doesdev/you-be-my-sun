@@ -6,12 +6,16 @@
   left: 0;
   background-color: yellow;
   border: 2px solid red;
+  color: red;
+  text-align: center;
 }
 
 #earth {
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   background-color: green;
   border: 2px solid blue;
+  color: blue;
+  text-align: center;
 }
