@@ -1,4 +1,4 @@
-# you-be-my-sun [![NPM version](https://badge.fury.io/js/you-be-my-sun.svg)](https://npmjs.org/package/you-be-my-sun)   [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+# you-be-my-sun [![NPM version](https://badge.fury.io/js/you-be-my-sun.svg)](https://npmjs.org/package/you-be-my-sun)   [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)   [![Dependency Status](https://dependencyci.com/github/doesdev/you-be-my-sun/badge)](https://dependencyci.com/github/doesdev/you-be-my-sun)
 
 > Make one DOM element hug another while staying closest to page center
 
